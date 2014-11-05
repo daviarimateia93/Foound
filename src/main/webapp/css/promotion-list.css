@@ -1,0 +1,91 @@
+#btn-new-promotion {
+	margin: 0 0 30px;	
+}
+
+.list-promotions {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+
+.list-promotions li.inactive {
+	background: #E2E2E2;
+}
+
+.list-promotions li img {
+	float: left;
+	margin: 30px;
+}
+
+.list-promotions li div h3,
+.list-promotions li div p,
+.list-promotions li div dt,
+.list-promotions li div dd,
+.list-promotions li div address {
+	color: #000;
+}
+
+.list-promotions li div h3 {
+	margin-top: 35px;
+	margin-bottom: 20px;
+}
+
+.list-promotions li div p {
+	margin-bottom: 20px;
+}
+
+.list-promotions li div dl {
+	margin: 0;
+}
+.list-promotions li div dt,
+.list-promotions li div dd {
+	display: inline;
+	margin: 0;
+}
+.list-promotions li div dd:after {
+	content: '\A';
+	white-space: pre;
+}
+
+ul.list-promotions li a {
+	text-decoration: none;
+	overflow: hidden;
+	width: 100%;
+}
+
+@media (max-width: 768px) {
+	
+	.list-promotions li {
+		padding: 0 30px; 
+	}
+	
+	.list-promotions li div h3
+	{
+		margin: 0 0 20px 0;
+	}
+	
+	.list-promotions li div {
+		float: none;
+	}
+	
+	ul.list-promotions li img {
+		float: none !important;
+	}
+	
+	ul.list-promotions li .pull-left {
+		float: none !important;
+	}
+	
+	ul.list-promotions li {
+		text-align: center;
+	}
+ 	
+	ul.list-promotions li a {
+		display: inline-block;
+	}
+	
+	.list-promotions li div dl {
+		padding: 10px;
+	}
+}

@@ -1,0 +1,353 @@
+@font-face{
+    font-family:helveticaneue;
+        src:url("fonts/helveticaneueltstd-roman.eot");
+        src:url("fonts/helveticaneueltstd-roman.eot?#iefix") format("embedded-opentype"),
+        url("fonts/helveticaneueltstd-roman.woff") format("woff"),
+        url("fonts/helveticaneueltstd-roman.ttf") format("truetype"),
+        url("fonts/helveticaneueltstd-roman.svg#helveticaneueltstd-roman") format("svg")
+}
+@font-face{
+    font-family:helveticaneuebd;
+        src:url("fonts/HelveticaNeueLTStd-Bd.eot");
+        src:url("fonts/HelveticaNeueLTStd-Bd.eot?#iefix") format("embedded-opentype"),
+        url("fonts/HelveticaNeueLTStd-Bd.woff") format("woff"),
+        url("fonts/HelveticaNeueLTStd-Bd.ttf") format("truetype"),
+        url("fonts/HelveticaNeueLTStd-Bd.svg#helveticaneueltstd") format("svg")
+}
+@font-face{
+    font-family:Helvetica-UltLt;
+        src:url("fonts/helveticaneueltstd-ultlt.eot");
+        src:url("fonts/helveticaneueltstd-ultlt.eot?#iefix") format("embedded-opentype"),
+        url("fonts/helveticaneueltstd-ultlt.woff") format("woff"),
+        url("fonts/helveticaneueltstd-ultlt.ttf") format("truetype"),
+        url("fonts/helveticaneueltstd-ultlt.svg#helveticaneueltstd-ultlt") format("svg");font-weight:lighter
+}
+@font-face{
+    font-family:helveticaneuelt;
+        src:url("fonts/helveticaneueltstd-lt.eot");
+        src:url("fonts/helveticaneueltstd-lt.eot?#iefix") format("embedded-opentype"),
+        url("fonts/helveticaneueltstd-lt.woff") format("woff"),
+        url("fonts/helveticaneueltstd-lt.ttf") format("truetype"),
+        url("fonts/helveticaneueltstd-lt.svg#helveticaneueltstd-lt") format("svg");font-weight:lighter
+}
+@font-face{
+    font-family:helveticaneueth;
+        src:url("fonts/helveticaneueltstd-th.eot");
+        src:url("fonts/helveticaneueltstd-th.eot?#iefix") format("embedded-opentype"),
+        url("fonts/helveticaneueltstd-th.woff") format("woff"),
+        url("fonts/helveticaneueltstd-th.ttf") format("truetype"),
+        url("fonts/helveticaneueltstd-th.svg#helveticaneueth") format("svg");font-weight:lighter;font-style:normal
+}
+
+textarea {
+	resize: none;
+}
+
+.alert {
+	display: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: helveticaneueth, Arimo, Helvetica, Arial, Sans-serif;
+}
+
+a {
+	color: #37bc9b;
+}
+
+a:hover, 
+a:focus {
+	color: #2b957a;
+}
+
+.btn-primary {
+	background-color: #37bc9b;
+	border-color: #2b957a;
+}
+
+.btn-primary:hover,
+.btn-primary:focus, 
+.btn-primary:active, 
+.btn-primary.active,
+.btn-primary.disabled, 
+.btn-primary[disabled], 
+fieldset[disabled] .btn-primary, 
+.btn-primary.disabled:hover, 
+.btn-primary[disabled]:hover, 
+fieldset[disabled] .btn-primary:hover, 
+.btn-primary.disabled:focus, 
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus, 
+.btn-primary.disabled:active, 
+.btn-primary[disabled]:active, 
+fieldset[disabled] .btn-primary:active, 
+.btn-primary.disabled.active, 
+.btn-primary[disabled].active, 
+fieldset[disabled] .btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+	background-color: #2b957a !important;
+	border-color: #2b957a !important;
+}
+
+body {
+	background-color: #F7FAF9;
+	padding-top: 71px;
+}
+
+/* content */
+
+.list-promotions li,
+.content:not(p) {
+	overflow: hidden;
+	margin: 0 0 30px;
+	background-color: #fff;
+	border: 1px solid;
+	border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+	border-radius: 3px;
+}
+
+.content:not(p) {
+	padding: 30px;
+}
+
+.alert {
+	margin: 10px;
+}
+
+.title-legend {
+	width: 100%;
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 20px;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 21px;
+	line-height: inherit;
+	color: #333;
+	border: 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+
+/* Header */
+
+.navbar-default {
+	background-color: #37bc9b;
+	border-color: #2b957a;
+}
+
+.navbar-brand {
+	font: 18px helveticaneueth, Arimo, Helvetica, Arial, Sans-serif;
+	text-shadow: 1px 1px 1px #333;
+}
+
+.navbar-default .navbar-collapse, 
+.navbar-default .navbar-form {
+	border-color: #37bc9b;
+}
+
+.navbar-default .navbar-brand {
+	color: #fff;
+}
+
+.navbar-default .navbar-brand:hover, 
+.navbar-default .navbar-brand:focus {
+	color: #fff;
+	background-color: transparent;
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: #fff;
+	text-shadow: 1px 1px 1px #333;
+	background-color: transparent;
+	transition: background-color 0.1s;
+}
+
+.navbar-default .navbar-nav>li>a:hover, 
+.navbar-default .navbar-nav>li>a:focus {
+	color: #fff;
+	background-color: #2b957a;
+	transition: background-color 0.1s;
+}
+
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a:hover, 
+.navbar-default .navbar-nav>.active>a:focus {
+	color: #fff;
+	background-color: #2b957a;
+}
+
+.navbar-default .navbar-toggle {
+	border-color: #2b957a;
+}
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #2b957a;
+}
+
+.navbar-default .navbar-toggle:hover, 
+.navbar-default .navbar-toggle:focus {
+	background-color: #2b957a;
+}
+
+.navbar-default .navbar-toggle:hover .icon-bar, 
+.navbar-default .navbar-toggle:focus .icon-bar {
+	background-color: #37bc9b;
+} 
+
+/* Modal */
+
+.bootstrap-dialog.type-primary .modal-header {
+	background-color: #37bc9b;
+}
+
+.title-section {
+	font-family: helveticaneue;
+	color: #37bc9b;
+	margin-bottom: 30px;
+}
+
+.bootstrap-dialog-selector {
+	padding: 0;
+	margin: 0 30px;
+}
+
+.bootstrap-dialog-selector li {
+	cursor: pointer;
+	margin: 10px 3px;
+}
+
+.bootstrap-dialog-selector li.active {
+	background: #f3f3f3;
+}
+
+/* Media Container */
+span.media-container {
+	position: absolute;
+	cursor: pointer;
+	padding: 4px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	-webkit-transition: all .2s ease-in-out;
+}
+
+span.media-container:hover .wrapper .mask {
+	opacity: 1;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=1);
+}
+
+span.media-container .wrapper {
+	position: relative;
+}
+
+span.media-container .wrapper .mask {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	background: rgba(0, 0, 0, 0.5);
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+	opacity: 0;
+	-webkit-transition: all 0.3s ease-in;
+       -moz-transition: all 0.3s ease-in;
+        -ms-transition: all 0.3s ease-in;
+         -o-transition: all 0.3s ease-in;
+            transition: all 0.3s ease-in;
+}
+
+span.media-container .wrapper .label {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	width: 100px;
+	height: 30px;
+	text-align: center;
+	margin-left: -50px;
+	margin-top: -15px;
+}
+
+span.media-container .wrapper img {
+	border: none;
+}
+
+span.media-container .wrapper input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+	opacity: 0;
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+
+.pac-container, 
+.twitter-typeahead .tt-dropdown-menu {
+	padding: 10px 10px !important;
+	border: 1px solid #ccc;
+	background: white;
+	-webkit-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.5);
+	box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.5);
+	margin-top: -1px;
+}
+
+.twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor .pac-item {
+	background: #ebf2fe !important;
+}
+
+.twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor .pac-item .pac-icon-marker {
+	background-position: -18px -161px;
+}
+
+.pac-container .pac-item:first-child,
+.twitter-typeahead .tt-dropdown-menu .tt-suggestion:first-child .pac-item {
+	border-top: none !important;
+}
+
+#btn-preferences-toggler {
+	position: relative;
+	background: transparent;
+	margin-top: 7px;
+	margin-left: -11px;
+	color: white;
+}
+
+#ul-preferences-chooser {
+	text-align: left;
+}
+
+#ul-preferences-chooser a {
+	text-align: left;
+}
+
+#ul-preferences-chooser span {
+	font-size: 12px;
+}
+
+@media (max-width: 768px) {
+	.btn {
+		display: block;
+		width: 100%;
+		float: none !important;
+		margin: 0 0 15px;
+	}
+	
+	.btn .glyphicon {
+		display: none;
+	}
+	
+	#btn-preferences-toggler {
+		width: auto;
+		display: inherit;
+		margin: inherit;
+		top: 6px;
+		left: -11px;
+	}
+}
+

@@ -1,0 +1,234 @@
+html, body {
+	overflow: hidden;
+}
+
+#marker-info-window {
+	background: rgba(0, 0, 0, 0.7);
+	color: white;
+	border: 1px solid black;
+	margin-top: 9px;
+	max-width: 350px;
+	min-width: 350px;
+	-webkit-box-shadow: 5px 5px 10px 0px rgba(0,0,0,1);
+	-moz-box-shadow: 5px 5px 10px 0px rgba(0,0,0,1);
+	box-shadow: 5px 5px 10px 0px rgba(0,0,0,1);
+	padding: 5px;
+}
+
+#marker-info-window a {
+	color: white;
+}
+
+#marker-info-window .info {
+	padding-left: 110px;
+}
+
+#marker-info-window hr {
+	margin: 10px 0;
+}
+
+#marker-info-window .avatar {
+	padding: 5px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	background: white;
+	margin-right: 10px;
+}
+
+#marker-info-window .name {
+	font-size: 14px;
+	margin: 5px 0;
+}
+
+#marker-info-window .about {
+	font-size: 11px;
+}
+
+#marker-info-window .address {
+	font-size: 10px;
+}
+
+#div-filters {
+	position: absolute;
+	top: 120px;
+	right: -140px;
+	width: 172px;
+	border: 1px solid black;
+	height: auto;
+	overflow: hidden;
+	background: rgba(0,0,0,0.7);
+	z-index: 4;
+	padding: 10px 10px 0 10px;
+	color: white;
+	-webkit-transition: all 0.15s ease-in;
+       -moz-transition: all 0.15s ease-in;
+        -ms-transition: all 0.15s ease-in;
+         -o-transition: all 0.15s ease-in;
+            transition: all 0.15s ease-in;
+}
+
+#div-filters form input[type=radio],  #div-filters form input[type=checkbox] {
+	min-height: 11px;
+	max-height: 11px;
+	margin-top: 6px;
+}
+
+#div-filters form label {
+text-transform: uppercase;
+font-size: 11px;
+}
+
+#div-filters .title {
+	text-align: center;
+	font-size: 13px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+#div-filters hr {
+	margin: 5px 0;
+}
+
+#div-filters .toggler {
+	width: 15px;
+	margin-right: 10px;
+	cursor: pointer;
+	padding-bottom: 10px;
+}
+
+#div-filters .toggler .title {
+	transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg); 
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+	margin-top: 45px;
+}
+
+#div-filters.opened {
+	right: 0;
+}
+
+#div-filters.opened .toggler .title {
+	display: none;
+}
+
+#div-filters form {
+	width: 125px;
+}
+
+#div-filters legend {
+	font-size: 16px;
+	color: white;
+	margin-bottom: 0;
+}
+
+#div-map-canvas {
+	position: absolute;
+	top: 51px;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 1;
+}
+
+#div-query-holder {
+	position: absolute;
+	z-index: 3;
+	width: 50%;
+	max-width: 400px;
+	margin-left: 100px;
+}
+
+#div-query-holder .input-group-addon {
+	cursor: pointer;
+	border-radius: 0;
+}
+
+#div-query-holder .input-group-addon:hover {
+	color: #428bca;
+}
+
+#div-query-holder input {
+	text-overflow: ellipsis;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	border-radius: 0;
+}
+
+#div-query-holder .twitter-typeahead, 
+#div-query-holder .twitter-typeahead .tt-dropdown-menu { 
+ 	float: left;
+ 	width: 100%;
+}
+
+#div-query-holder .twitter-typeahead {
+	position: static !important;
+}
+
+#div-query-holder .twitter-typeahead input.tt-hint {
+	position: relative !important;
+}
+
+#inpt-establishment-searchbox {
+	margin-top: -34px;
+}
+ 
+.pac-container, 
+#div-query-holder .twitter-typeahead .tt-dropdown-menu {
+	position: absolute !important;
+	z-index: 2 !important;
+	width: 50% !important;
+	max-width: 400px !important;
+	left: 100px !important;
+}
+
+#div-query-holder .twitter-typeahead .tt-dropdown-menu {
+	width: 100% !important;
+	left: 0 !important;
+}
+
+.infoBox {
+	margin-left: 15px;
+}
+
+.infoBox:before { 
+	border-left: 10px solid transparent; 
+	border-right: 10px solid transparent; 
+	border-bottom: 10px solid black; 
+	top: 0; 
+	content: '';  
+	position: absolute; 
+	width: 0;
+	height: 0;
+	left: 50%;
+	margin-left: -10px;
+}
+
+@media (max-width: 768px) {
+	#div-query-holder {
+		bottom: 0;
+		right: 0;
+		left: 0;
+		margin-left: 0;
+		width: 100%;
+		max-width: 100%;
+	}
+	
+	.pac-container,
+	#div-query-holder .twitter-typeahead .tt-dropdown-menu {
+		bottom: 33px;
+		right: 0;
+		left: 0 !important;
+		top: auto !important;
+		width: 100% !important;
+		max-width: 100% !important;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+	 }
+}
