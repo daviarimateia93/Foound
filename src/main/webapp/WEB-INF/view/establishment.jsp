@@ -34,19 +34,19 @@
 					<div class="form-group">
 				    	<label for="ipt-name" class="i18n col-sm-2 control-label" i18n-key="ESTABLISHMENT_FORM_NAME"></label>
 				    	<div class="col-sm-10">
-				      		<input type="text" class="i18n form-control" id="ipt-name" i18n-key="ESTABLISHMENT_FORM_NAME" name="name" i18n-render="placeholder" value="${establishment.name}" required ${(!sameEstablishment)? 'disabled' : ''} />
+				      		<input type="text" class="i18n form-control" id="ipt-name" i18n-key="ESTABLISHMENT_FORM_NAME" name="name" i18n-render="placeholder" value="${establishment.name}" required ${(!sameEstablishment && establishment != null)? 'disabled' : ''} />
 				    	</div>
 				  	</div>
 				  	<div class="form-group">
 				    	<label for="txta-address" class="i18n col-sm-2 control-label" i18n-key="ESTABLISHMENT_FORM_ADDRESS"></label>
 				    	<div class="col-sm-10">
-				      		<textarea class="i18n form-control" id="txta-address" name="address" i18n-key="ESTABLISHMENT_FORM_ADDRESS" i18n-render="placeholder" required ${(!sameEstablishment)? 'disabled' : ''}>${establishment.address}</textarea>
+				      		<textarea class="i18n form-control" id="txta-address" name="address" i18n-key="ESTABLISHMENT_FORM_ADDRESS" i18n-render="placeholder" required ${(!sameEstablishment && establishment != null)? 'disabled' : ''}>${establishment.address}</textarea>
 				    	</div>
 				  	</div>
 				  	<div class="form-group">
 				    	<label for="txta-about" class="i18n col-sm-2 control-label" i18n-key="ESTABLISHMENT_FORM_ABOUT"></label>
 				    	<div class="col-sm-10">
-				      		<textarea class="i18n form-control" id="txta-about" name="about" i18n-key="ESTABLISHMENT_FORM_ABOUT" i18n-render="placeholder" required ${(!sameEstablishment)? 'disabled' : ''}>${establishment.about}</textarea>
+				      		<textarea class="i18n form-control" id="txta-about" name="about" i18n-key="ESTABLISHMENT_FORM_ABOUT" i18n-render="placeholder" required ${(!sameEstablishment && establishment != null)? 'disabled' : ''}>${establishment.about}</textarea>
 				    	</div>
 				  	</div>
 					<c:if test="${sessionScope.USER != null && sameEstablishment}">

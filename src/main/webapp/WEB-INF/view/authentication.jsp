@@ -27,6 +27,12 @@
 				    		<span>en</span>
 				    	</a>
 				    </li>
+				    <li>
+				    	<a href="${__contextPath__}/i18n?language=es" class="language">
+				    		<img src="${__contextPath__}/img/flag-es.png" width="20" alt="es" title="es">
+				    		<span>es</span>
+				    	</a>
+				    </li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>

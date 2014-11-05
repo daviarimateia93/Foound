@@ -14,7 +14,7 @@ public class I18n
 	
 	public static enum Language
 	{
-		EN("en"), PT_BR("pt-BR");
+		EN("en"), ES("es"), PT_BR("pt-BR");
 		
 		private String value;
 		
@@ -44,10 +44,17 @@ public class I18n
 			{
 				return Language.EN;
 			}
+			
+			case "es":
+			{
+				return Language.ES;
+			}
+			
 			case "pt-BR":
 			{
 				return Language.PT_BR;
 			}
+			
 			default:
 			{
 				return Language.PT_BR;
