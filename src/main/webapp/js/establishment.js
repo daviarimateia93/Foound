@@ -7,13 +7,18 @@ var Establishment = {
     {
 	var self = this;
 	
-	$('input[name="address"]').parents('form').on('ajaxsubmit', function(e, action)
+	if(VIEW_MODE === true)
+	{
+	    $('textarea[name="address"]').elastic();
+	}
+	
+	$('textarea[name="address"]').parents('form').on('ajaxsubmit', function(e, action)
 	{
 	    if(self.__latitude == null || self.__longitude == null)
 	    {
 		action.stop = true;
 		
-		self.matchAddress($('input[name="address"]').val());
+		self.matchAddress($('textarea[name="address"]').val());
 	    }
 	});
 	
@@ -37,8 +42,8 @@ var Establishment = {
     {
 	var self = this;
 	var $matching = $('#establishment-address-matching');
-	var $input = $('input[name="address"]');
-	var $form = $input.parents('form');
+	var $textarea = $('textarea[name="address"]');
+	var $form = $textarea.parents('form');
 	
 	$form.attr('disabled', '');
 	
@@ -79,7 +84,7 @@ var Establishment = {
 				    {
 					selected = true;
 					
-					$input.val($('.bootstrap-dialog-selector .active').text());
+					$textarea.val($('.bootstrap-dialog-selector .active').text());
 					
 					$form.removeAttr('disabled');
 					

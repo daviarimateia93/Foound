@@ -9,6 +9,8 @@
 
 <script>var PUBLIC_PAGE = ${(sessionScope.user == null)? 'true' : 'false'};</script>
 
+<script>var VIEW_MODE = ${(establishment != null && !sameEstablishment)? 'true' : 'false'};</script>
+
 <c:if test="${sessionScope.USER != null || establishment != null}">
 	<div class="container">
 		<h2 class="title-section">
@@ -36,9 +38,9 @@
 				    	</div>
 				  	</div>
 				  	<div class="form-group">
-				    	<label for="ipt-address" class="i18n col-sm-2 control-label" i18n-key="ESTABLISHMENT_FORM_ADDRESS"></label>
+				    	<label for="txta-address" class="i18n col-sm-2 control-label" i18n-key="ESTABLISHMENT_FORM_ADDRESS"></label>
 				    	<div class="col-sm-10">
-				      		<input type="text" class="i18n form-control" id="ipt-address" name="address" i18n-key="ESTABLISHMENT_FORM_ADDRESS" i18n-render="placeholder" value="${establishment.address}" required ${(!sameEstablishment)? 'disabled' : ''} />
+				      		<textarea class="i18n form-control" id="txta-address" name="address" i18n-key="ESTABLISHMENT_FORM_ADDRESS" i18n-render="placeholder" required ${(!sameEstablishment)? 'disabled' : ''}>${establishment.address}</textarea>
 				    	</div>
 				  	</div>
 				  	<div class="form-group">
