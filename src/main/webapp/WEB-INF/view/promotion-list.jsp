@@ -20,7 +20,7 @@
 			<h2 class="title-section">
 				<span class="glyphicon glyphicon-fire"></span> 
 				<span class="i18n" i18n-key="PROMOTION_LIST_TITLE_SECTION"></span>
-				<c:if test="${!sameEstablishment}">
+				<c:if test="${!sameEstablishment && currentEstablishment != null}">
 					 > <small><a href="${__contextPath__}/establishment/${currentEstablishment.id}">${currentEstablishment.name}</a></small>
 				</c:if>
 			</h2>
