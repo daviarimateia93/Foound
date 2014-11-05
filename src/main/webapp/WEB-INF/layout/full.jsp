@@ -88,12 +88,14 @@
 			<div id="main-navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
 	      		<div class="container">
 	        		<div class="navbar-header">
-	          			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	            			<span class="sr-only">Toggle navigation</span>
-	            			<span class="icon-bar"></span>
-	            			<span class="icon-bar"></span>
-	            			<span class="icon-bar"></span>
-	          			</button>
+	        			<c:if test="${sessionScope.USER != null}">
+		          			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		            			<span class="sr-only">Toggle navigation</span>
+		            			<span class="icon-bar"></span>
+		            			<span class="icon-bar"></span>
+		            			<span class="icon-bar"></span>
+		          			</button>
+	          			</c:if>
 	          			<div class="btn-group">
 	          				<a class="navbar-brand" href="${__contextPath__}"><b>Foo</b>un<b>d</b></a>
 	          				<button type="button" id="btn-preferences-toggler" class="btn dropdown-toggle" data-toggle="dropdown">

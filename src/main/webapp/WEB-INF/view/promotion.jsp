@@ -13,7 +13,13 @@
 <script>var VIEW_MODE = ${(promotion != null && !belongsToEstablishment)? 'true' : 'false'};</script>
 
 <div class="container">
-	<h2 class="title-section"><span class="glyphicon glyphicon-fire"></span> <span class="i18n" i18n-key="PROMOTION_TITLE_SECTION"></span></h2>
+	<h2 class="title-section">
+		<span class="glyphicon glyphicon-fire"></span> 
+		<span class="i18n" i18n-key="PROMOTION_TITLE_SECTION"></span>
+		<c:if test="${!belongsToEstablishment}">
+			 > <small><a href="${__contextPath__}/establishment/${promotion.establishment.id}">${promotion.establishment.name}</a></small>
+		</c:if>
+	</h2>
 	<div class="content page-promotion">
 		<c:if test="${promotion != null}">
 			<fieldset id="fs-media">

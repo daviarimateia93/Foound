@@ -17,7 +17,13 @@
 <c:choose>
 	<c:when test="${fn:length(promotions) > 0}">
 		<c:if test="${topPromotions == null}">
-			<h2 class="title-section"><span class="glyphicon glyphicon-fire"></span> <span class="i18n" i18n-key="PROMOTION_LIST_TITLE_SECTION"></span></h2>
+			<h2 class="title-section">
+				<span class="glyphicon glyphicon-fire"></span> 
+				<span class="i18n" i18n-key="PROMOTION_LIST_TITLE_SECTION"></span>
+				<c:if test="${!sameEstablishment}">
+					 > <small><a href="${__contextPath__}/establishment/${currentEstablishment.id}">${currentEstablishment.name}</a></small>
+				</c:if>
+			</h2>
 		</c:if>
 		<c:if test="${!activePromotions && sameEstablishment && currentEstablishment != null && topPromotions == null || (activePromotions && sameEstablishment)}">
 			<a href="${__contextPath__}/promotion" class="btn btn-primary pull-right" id="btn-new-promotion"><span class="glyphicon glyphicon-plus"></span> <span class="i18n" i18n-key="PROMOTION_LIST_NEW_PROMOTION"></span></a>
