@@ -53,6 +53,11 @@ public class Constants
 	public static final String TEXT_ESTABLISHMENT_LATITUDE_IS_INVALID = "ESTABLISHMENT_LATITUDE_IS_INVALID";
 	public static final String TEXT_ESTABLISHMENT_LONGITUDE_MUST_NOT_BE_NULL = "ESTABLISHMENT_LONGITUDE_MUST_NOT_BE_NULL";
 	public static final String TEXT_ESTABLISHMENT_LONGITUDE_IS_INVALID = "ESTABLISHMENT_LONGITUDE_IS_INVALID";
+	public static final String TEXT_ESTABLISHMENT_PHONE_IS_ALREADY_IN_USE = "ESTABLISHMENT_PHONE_IS_ALREADY_IN_USE";
+	public static final String TEXT_ESTABLISHMENT_PHONE_MUST_NOT_BE_EMPTY = "ESTABLISHMENT_PHONE_MUST_NOT_BE_EMPTY";
+	public static final String TEXT_ESTABLISHMENT_PHONE_MUST_NOT_BE_BIGGER_THAN_15_CHARACTERS = "ESTABLISHMENT_PHONE_MUST_NOT_BE_BIGGER_THAN_15_CHARACTERS";
+	public static final String TEXT_ESTABLISHMENT_SPECIALITY_MUST_NOT_BE_NULL = "ESTABLISHMENT_SPECIALITY_MUST_NOT_BE_NULL";
+	public static final String TEXT_ESTABLISHMENT_SPECIALITY_DOES_NOT_EXIST = "ESTABLISHMENT_SPECIALITY_DOES_NOT_EXIST";
 	public static final String TEXT_PROMOTION_CREATION_MUST_BE_NULL = "PROMOTION_CREATION_MUST_BE_NULL";
 	public static final String TEXT_PROMOTION_NOT_FOUND = "PROMOTION_NOT_FOUND";
 	public static final String TEXT_PROMOTION_ID_MUST_BE_NULL = "PROMOTION_ID_MUST_BE_NULL";
@@ -91,6 +96,7 @@ public class Constants
 	
 	// patterns
 	public static final String TEXT_PATTERN_EMAIL = "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$";
+	public static final String TEXT_PATTERN_NON_NUMERIC = "[^0-9]";
 	
 	// http headers
 	public static final String TEXT_HEADER_USER_CREDENTIALS = "User-Credentials";

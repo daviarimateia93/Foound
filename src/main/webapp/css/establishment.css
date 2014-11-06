@@ -22,11 +22,17 @@
 }
 
 .page-establishment input[type="text"]:disabled,
-.page-establishment textarea:disabled {
+.page-establishment textarea:disabled,
+.page-establishment select:disabled {
 	background: none;
 	border: none;
 	box-shadow: none;
 	cursor: default;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
 }
 
 @media (max-width: 768px) {

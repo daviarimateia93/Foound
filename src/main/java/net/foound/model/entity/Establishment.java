@@ -31,6 +31,10 @@ public class Establishment extends BaseEntity
 	@JoinColumn(name = "ID_USER", nullable = false, unique = true, updatable = false)
 	private User user;
 	
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ID_SPECIALITY", nullable = false)
+	private Speciality speciality;
+	
 	@Column(name = "NAME", nullable = false, length = 120)
 	private String name;
 	
@@ -45,6 +49,9 @@ public class Establishment extends BaseEntity
 	
 	@Column(name = "LONGITUDE", nullable = false, precision = 11, scale = 8)
 	private BigDecimal longitude;
+	
+	@Column(name = "PHONE", nullable = false, length = 40)
+	private String phone;
 	
 	@Column(name = "AVATAR", nullable = true)
 	private String avatar;
@@ -71,6 +78,16 @@ public class Establishment extends BaseEntity
 	public void setUser(User user)
 	{
 		this.user = user;
+	}
+	
+	public Speciality getSpeciality()
+	{
+		return speciality;
+	}
+	
+	public void setSpeciality(Speciality speciality)
+	{
+		this.speciality = speciality;
 	}
 	
 	public String getName()
@@ -121,6 +138,16 @@ public class Establishment extends BaseEntity
 	public void setLongitude(BigDecimal longitude)
 	{
 		this.longitude = longitude;
+	}
+	
+	public String getPhone()
+	{
+		return phone;
+	}
+	
+	public void setPhone(String phone)
+	{
+		this.phone = phone;
 	}
 	
 	public String getAvatar()

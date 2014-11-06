@@ -27,4 +27,7 @@ public interface EstablishmentRepository extends JpaRepository<Establishment, Lo
 	
 	@Query("SELECT e FROM Establishment e WHERE e.name = :name AND e.address = :address AND e.latitude = :latitude AND e.longitude = :longitude")
 	public Establishment findByNameAddressLatitudeAndLongitude(@Param("name") String name, @Param("address") String address, @Param("latitude") BigDecimal latitude, @Param("longitude") BigDecimal longitude);
+	
+	@Query("SELECT e FROM Establishment e WHERE e.phone = :phone")
+	public Establishment findByPhone(@Param("phone") String phone);
 }

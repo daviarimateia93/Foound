@@ -144,6 +144,8 @@ public class EstablishmentController extends BaseController
 		
 		getUserService().encrypt(user);
 		
+		getEstablishmentService().setSpeciality(establishment);
+		
 		establishment = getEstablishmentService().saveAsInsert(establishment);
 		
 		notifyEstablishmentUpdateRequests(establishment);
@@ -158,6 +160,8 @@ public class EstablishmentController extends BaseController
 		authenticateByEstablishmentId(id);
 		
 		establishment.setUser(getUserService().getFromRequest(getRequest()));
+		
+		getEstablishmentService().setSpeciality(establishment);
 		
 		establishment = getEstablishmentService().saveAsUpdate(id, establishment, changeAvatar);
 		

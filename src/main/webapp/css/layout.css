@@ -39,12 +39,13 @@
         url("fonts/helveticaneueltstd-th.svg#helveticaneueth") format("svg");font-weight:lighter;font-style:normal
 }
 
-textarea {
-	resize: none;
+body {
+	background-color: #F7FAF9;
+	padding-top: 71px;
 }
 
-.alert {
-	display: none;
+textarea {
+	resize: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -89,9 +90,16 @@ fieldset[disabled] .btn-primary.active,
 	border-color: #2b957a !important;
 }
 
-body {
-	background-color: #F7FAF9;
-	padding-top: 71px;
+select.form-control {
+	padding: 6px 10px;
+}
+
+textarea.form-control {
+	height: 34px;
+}
+
+.alert {
+	display: none;
 }
 
 /* content */

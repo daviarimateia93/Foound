@@ -1,10 +1,13 @@
 package net.foound.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import net.foound.model.entity.Client;
 import net.foound.model.entity.Establishment;
 import net.foound.model.entity.Promotion;
+import net.foound.model.entity.Speciality;
 import net.foound.model.entity.User;
 import net.foound.model.service.AuthenticationService;
 import net.foound.model.service.ClientService;
@@ -12,6 +15,7 @@ import net.foound.model.service.EstablishmentService;
 import net.foound.model.service.GoogleService;
 import net.foound.model.service.PromotionService;
 import net.foound.model.service.RoleService;
+import net.foound.model.service.SpecialityService;
 import net.foound.model.service.StatusService;
 import net.foound.model.service.SupportService;
 import net.foound.model.service.UserService;
@@ -45,6 +49,9 @@ public class BaseController
 	
 	@Autowired
 	private RoleService roleService;
+	
+	@Autowired
+	private SpecialityService specialityService;
 	
 	@Autowired
 	private GoogleService googleService;
@@ -90,6 +97,11 @@ public class BaseController
 	protected RoleService getRoleService()
 	{
 		return roleService;
+	}
+	
+	protected SpecialityService getSpecialityService()
+	{
+		return specialityService;
 	}
 	
 	protected GoogleService getGoogleService()
@@ -158,10 +170,12 @@ public class BaseController
 	{
 		Client client = getClientService().getFromRequest(getRequest());
 		Establishment establishment = getEstablishmentService().getFromRequest(getRequest());
+		List<Speciality> specialities = getSpecialityService().findAll();
 		
 		View view = new View(layoutName, partialViewName, title);
 		view.addObject("client", client);
 		view.addObject("establishment", establishment);
+		view.addObject("specialities", specialities);
 		
 		return view;
 	}

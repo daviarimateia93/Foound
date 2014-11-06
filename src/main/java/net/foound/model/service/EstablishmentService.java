@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import net.foound.exception.HttpException;
 import net.foound.model.entity.Establishment;
 import net.foound.model.entity.Promotion;
+import net.foound.model.entity.Speciality;
 import net.foound.model.entity.User;
 import net.foound.model.repository.EstablishmentRepository;
 import net.foound.util.Constants;
@@ -36,6 +37,9 @@ public class EstablishmentService
 	
 	@Autowired
 	private EstablishmentRepository establishmentRepository;
+	
+	@Autowired
+	private SpecialityService specialityService;
 	
 	@Autowired
 	private UserService userService;
@@ -117,6 +121,10 @@ public class EstablishmentService
 	@Transactional
 	private Establishment save(Establishment establishment)
 	{
+		String phone = establishment.getPhone().replaceAll(Constants.TEXT_PATTERN_NON_NUMERIC, "");
+		
+		establishment.setPhone(phone);
+		
 		return establishmentRepository.save(establishment);
 	}
 	
@@ -176,6 +184,15 @@ public class EstablishmentService
 		}
 	}
 	
+	public Establishment setSpeciality(Establishment establishment)
+	{
+		Speciality speciality = specialityService.findByName(establishment.getSpeciality().getName());
+		
+		establishment.setSpeciality(speciality);
+		
+		return establishment;
+	}
+	
 	public void validateAsChangeAvatar(MultipartFile avatarMultipartFile)
 	{
 		if(!avatarMultipartFile.getContentType().equalsIgnoreCase(Constants.TEXT_CONTENT_TYPE_IMAGE_JPEG) && !avatarMultipartFile.getContentType().equalsIgnoreCase(Constants.TEXT_CONTENT_TYPE_IMAGE_JPG) && !avatarMultipartFile.getContentType().equalsIgnoreCase(Constants.TEXT_CONTENT_TYPE_IMAGE_JPE) && !avatarMultipartFile.getContentType().equalsIgnoreCase(Constants.TEXT_CONTENT_TYPE_IMAGE_GIF) && !avatarMultipartFile.getContentType().equalsIgnoreCase(Constants.TEXT_CONTENT_TYPE_IMAGE_PNG) && !avatarMultipartFile.getContentType().equalsIgnoreCase(Constants.TEXT_CONTENT_TYPE_IMAGE_BMP))
@@ -186,6 +203,7 @@ public class EstablishmentService
 	
 	@Transactional(readOnly = true)
 	// must create a new user
+	// must not create a new speciality
 	public void validateAsInsert(Establishment establishment)
 	{
 		validateIgnoringId(establishment);
@@ -202,12 +220,20 @@ public class EstablishmentService
 			throw new HttpException(Constants.TEXT_ESTABLISHMENT_NAME_ADDRESS_LATITUDE_LONGITUDE_IS_ALREADY_IN_USE, HttpStatus.NOT_ACCEPTABLE);
 		}
 		
+		Establishment foundEstablishmentByPhone = establishmentRepository.findByPhone(establishment.getPhone());
+		
+		if(foundEstablishmentByPhone != null)
+		{
+			throw new HttpException(Constants.TEXT_ESTABLISHMENT_PHONE_IS_ALREADY_IN_USE, HttpStatus.NOT_ACCEPTABLE);
+		}
+		
 		userService.validateAsInsert(establishment.getUser());
 	}
 	
 	@Transactional(readOnly = true)
 	// must not create a new user
 	// can update an old user
+	// must not create a new speciality
 	public void validateAsUpdate(Establishment establishment)
 	{
 		validateIgnoringId(establishment);
@@ -229,6 +255,16 @@ public class EstablishmentService
 			if(!foundEstablishmentByNameAddressLatitudeAndLongitude.getId().equals(establishment.getId()))
 			{
 				throw new HttpException(Constants.TEXT_ESTABLISHMENT_NAME_ADDRESS_LATITUDE_LONGITUDE_IS_ALREADY_IN_USE, HttpStatus.NOT_ACCEPTABLE);
+			}
+		}
+		
+		Establishment foundEstablishmentByPhone = establishmentRepository.findByPhone(establishment.getPhone());
+		
+		if(foundEstablishmentByPhone != null)
+		{
+			if(!foundEstablishmentByPhone.getId().equals(establishment.getId()))
+			{
+				throw new HttpException(Constants.TEXT_ESTABLISHMENT_PHONE_IS_ALREADY_IN_USE, HttpStatus.NOT_ACCEPTABLE);
 			}
 		}
 		
@@ -305,6 +341,26 @@ public class EstablishmentService
 		if(establishment.getLongitude().compareTo(new BigDecimal(-180.0f)) == -1 || establishment.getLongitude().compareTo(new BigDecimal(180.0f)) == 1)
 		{
 			throw new HttpException(Constants.TEXT_ESTABLISHMENT_LONGITUDE_IS_INVALID, HttpStatus.NOT_ACCEPTABLE);
+		}
+		
+		if(StringUtils.isEmpty(establishment.getPhone()))
+		{
+			throw new HttpException(Constants.TEXT_ESTABLISHMENT_PHONE_MUST_NOT_BE_EMPTY, HttpStatus.NOT_ACCEPTABLE);
+		}
+		
+		if(establishment.getPhone().length() > 15)
+		{
+			throw new HttpException(Constants.TEXT_ESTABLISHMENT_PHONE_MUST_NOT_BE_BIGGER_THAN_15_CHARACTERS, HttpStatus.NOT_ACCEPTABLE);
+		}
+		
+		if(establishment.getSpeciality() == null)
+		{
+			throw new HttpException(Constants.TEXT_ESTABLISHMENT_SPECIALITY_MUST_NOT_BE_NULL, HttpStatus.NOT_ACCEPTABLE);
+		}
+		
+		if(specialityService.findOne(establishment.getSpeciality().getId()) == null)
+		{
+			throw new HttpException(Constants.TEXT_ESTABLISHMENT_SPECIALITY_DOES_NOT_EXIST, HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
 }

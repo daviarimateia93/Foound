@@ -33,7 +33,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter
 	@Autowired
 	private Environment environment;
 	
-	public static final String APP_NAME = "FiapTCC";
+	public static final String APP_NAME = "Foound";
 	public static final String APP_VERSION = "1.0.0";
 	public static final String VIEW_RESOLVER_PREFIX = "/WEB-INF/view/";
 	public static final String VIEW_RESOLVER_SUFFIX = ".jsp";

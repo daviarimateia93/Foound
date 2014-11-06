@@ -38,6 +38,17 @@
 				    	</div>
 				  	</div>
 				  	<div class="form-group">
+				    	<label for="ipt-phone-country" class="i18n col-sm-2 control-label" i18n-key="ESTABLISHMENT_FORM_PHONE"></label>
+				    	<div class="col-sm-10">
+				    		<!-- 
+				      		<input type="text" class="i18n form-control country" id="ipt-phone-country" i18n-key="ESTABLISHMENT_FORM_PHONE_COUNTRY" i18n-render="placeholder" required ${(!sameEstablishment && establishment != null)? 'disabled' : ''} />
+				      		<input type="text" class="i18n form-control network" id="ipt-phone-network" i18n-key="ESTABLISHMENT_FORM_PHONE_NETWORK" i18n-render="placeholder" required ${(!sameEstablishment && establishment != null)? 'disabled' : ''} />
+				      		<input type="text" class="i18n form-control number" id="ipt-phone-number" i18n-key="ESTABLISHMENT_FORM_PHONE_NUMBER" i18n-render="placeholder" required ${(!sameEstablishment && establishment != null)? 'disabled' : ''} />
+				      		-->
+				      		<input type="text" class="i18n form-control" id="ipt-phone" i18n-key="ESTABLISHMENT_FORM_PHONE" name="phone" i18n-render="placeholder" value="${establishment.phone}" required ${(!sameEstablishment && establishment != null)? 'disabled' : ''} />
+				    	</div>
+				  	</div>
+				  	<div class="form-group">
 				    	<label for="txta-address" class="i18n col-sm-2 control-label" i18n-key="ESTABLISHMENT_FORM_ADDRESS"></label>
 				    	<div class="col-sm-10">
 				      		<textarea class="i18n form-control" id="txta-address" name="address" i18n-key="ESTABLISHMENT_FORM_ADDRESS" i18n-render="placeholder" required ${(!sameEstablishment && establishment != null)? 'disabled' : ''}>${establishment.address}</textarea>
@@ -48,6 +59,16 @@
 				    	<div class="col-sm-10">
 				      		<textarea class="i18n form-control" id="txta-about" name="about" i18n-key="ESTABLISHMENT_FORM_ABOUT" i18n-render="placeholder" required ${(!sameEstablishment && establishment != null)? 'disabled' : ''}>${establishment.about}</textarea>
 				    	</div>
+				  	</div>
+				  	<div class="form-group">
+				  		<label for="slct-specialities" class="i18n col-sm-2 control-label" i18n-key="ESTABLISHMENT_FORM_SPECIALITY">Speciality</label>
+				  		<div class="col-sm-10">
+				  			<select name="speciality.name" class="form-control" id="slct-specialities" ${(!sameEstablishment && establishment != null)? 'disabled' : ''}>
+				  				<c:forEach items="${specialities}" var="speciality">
+				  					<option value="${speciality.name}" class="i18n" i18n-key="SPECIALITY_${speciality.name}" ${(establishment.speciality.name == speciality.name)? 'selected' : ''}></option>
+				  				</c:forEach>
+				  			</select>
+				  		</div>
 				  	</div>
 					<c:if test="${sessionScope.USER != null && sameEstablishment}">
 					  	<div class="form-group">
