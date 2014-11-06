@@ -135,6 +135,10 @@ textarea.form-control {
 	border-bottom: 1px solid #e5e5e5;
 }
 
+input.phone.country,
+input.phone.area {
+	margin-bottom: 15px;
+}
 
 /* Header */
 

@@ -112,6 +112,62 @@ var Layout = {
 	    $(this).parent('.alert').hide();
 	});
 	
+	// handle *[phone]
+	$('*[phone]').each(function()
+	{
+	    var phone;
+	    
+	    try
+	    {
+		var hasValueProperty = (this['value'] !== undefined);
+		
+		if(hasValueProperty)
+		{
+		    phone = $(this).val();
+		}
+		else
+		{
+		    phone = $(this).text();
+		}
+		
+		var country = parseInt(phone.substring(0, 3));
+		var area = parseInt(phone.substring(3, 6))
+		var number = phone.substring(6, phone.length);
+		
+		var prettyPhone = '+' + country + ' ' + area + ' ' + number;
+		
+		if($(this).prop('tagName').toUpperCase() === 'INPUT' && $(this).attr('disabled') === undefined)
+		{
+		    $(this).attr('type', 'hidden');
+
+		    var countryHTML = i18n.applyOnDocument('<input type="text" class="i18n form-control phone country" id="ipt-phone-country" i18n-key="ESTABLISHMENT_FORM_PHONE_COUNTRY" i18n-render="placeholder" required />');
+		    var areaHTML = i18n.applyOnDocument('<input type="text" class="i18n form-control phone area" id="ipt-phone-area" i18n-key="ESTABLISHMENT_FORM_PHONE_AREA" i18n-render="placeholder" required />');
+		    var numberHTML = i18n.applyOnDocument('<input type="text" class="i18n form-control phone number" id="ipt-phone-number" i18n-key="ESTABLISHMENT_FORM_PHONE_NUMBER" i18n-render="placeholder" required />');
+		    
+		    var $country = $(countryHTML);
+		    var $area = $(areaHTML);
+		    var $number = $(numberHTML);
+		    
+		    $(this).parent().append([$country, $area, $number]);
+		}
+		else
+		{
+		    if(hasValueProperty)
+		    {
+			$(this).val(prettyPhone);
+		    }
+		    else
+		    {
+			$(this).html(prettyPhone);
+		    }
+		}
+	    }
+	    catch(exception)
+	    {
+		
+	    }
+	});
+	
 	// handle <input date-type="date|datetime|time" />
 	$('*[date-type]').each(function()
 	{

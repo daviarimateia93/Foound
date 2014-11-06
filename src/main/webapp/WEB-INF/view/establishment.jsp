@@ -40,12 +40,7 @@
 				  	<div class="form-group">
 				    	<label for="ipt-phone-country" class="i18n col-sm-2 control-label" i18n-key="ESTABLISHMENT_FORM_PHONE"></label>
 				    	<div class="col-sm-10">
-				    		<!-- 
-				      		<input type="text" class="i18n form-control country" id="ipt-phone-country" i18n-key="ESTABLISHMENT_FORM_PHONE_COUNTRY" i18n-render="placeholder" required ${(!sameEstablishment && establishment != null)? 'disabled' : ''} />
-				      		<input type="text" class="i18n form-control network" id="ipt-phone-network" i18n-key="ESTABLISHMENT_FORM_PHONE_NETWORK" i18n-render="placeholder" required ${(!sameEstablishment && establishment != null)? 'disabled' : ''} />
-				      		<input type="text" class="i18n form-control number" id="ipt-phone-number" i18n-key="ESTABLISHMENT_FORM_PHONE_NUMBER" i18n-render="placeholder" required ${(!sameEstablishment && establishment != null)? 'disabled' : ''} />
-				      		-->
-				      		<input type="text" class="i18n form-control" id="ipt-phone" i18n-key="ESTABLISHMENT_FORM_PHONE" name="phone" i18n-render="placeholder" value="${establishment.phone}" required ${(!sameEstablishment && establishment != null)? 'disabled' : ''} />
+				      		<input type="text" class="i18n form-control" id="ipt-phone" i18n-key="ESTABLISHMENT_FORM_PHONE" name="phone" i18n-render="placeholder" value="${establishment.phone}" phone required ${(!sameEstablishment && establishment != null)? 'disabled' : ''} />
 				    	</div>
 				  	</div>
 				  	<div class="form-group">
