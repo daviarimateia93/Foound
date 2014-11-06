@@ -138,17 +138,27 @@ var Layout = {
 		
 		if($(this).prop('tagName').toUpperCase() === 'INPUT' && $(this).attr('disabled') === undefined)
 		{
-		    $(this).attr('type', 'hidden');
-
-		    var countryHTML = i18n.applyOnDocument('<input type="text" class="i18n form-control phone country" id="ipt-phone-country" i18n-key="ESTABLISHMENT_FORM_PHONE_COUNTRY" i18n-render="placeholder" required />');
-		    var areaHTML = i18n.applyOnDocument('<input type="text" class="i18n form-control phone area" id="ipt-phone-area" i18n-key="ESTABLISHMENT_FORM_PHONE_AREA" i18n-render="placeholder" required />');
-		    var numberHTML = i18n.applyOnDocument('<input type="text" class="i18n form-control phone number" id="ipt-phone-number" i18n-key="ESTABLISHMENT_FORM_PHONE_NUMBER" i18n-render="placeholder" required />');
+		    $(this).off('focus.phone');
+		    $(this).on('focus.phone', function()
+		    {
+			$(this).next('.phone.country').focus();
+		    });
+		    
+		    $(this).addClass('phone-hide');
+		    
+		    var countryHTML = i18n.applyOnDocument('<input type="number" class="i18n form-control phone country" i18n-key="ESTABLISHMENT_FORM_PHONE_COUNTRY" i18n-render="placeholder" required />');
+		    var areaHTML = i18n.applyOnDocument('<input type="number" class="i18n form-control phone area" i18n-key="ESTABLISHMENT_FORM_PHONE_AREA" i18n-render="placeholder" required />');
+		    var numberHTML = i18n.applyOnDocument('<input type="number" class="i18n form-control phone number" i18n-key="ESTABLISHMENT_FORM_PHONE_NUMBER" i18n-render="placeholder" required />');
 		    
 		    var $country = $(countryHTML);
 		    var $area = $(areaHTML);
 		    var $number = $(numberHTML);
 		    
-		    $(this).parent().append([$country, $area, $number]);
+		    $country.val(country);
+		    $area.val(area);
+		    $number.val(number);
+		    
+		    $(this).after([$country, $area, $number]);
 		}
 		else
 		{
@@ -219,6 +229,29 @@ var Layout = {
 	    var $form = $(this);
 	    
 	    $form.find('*[type="submit"]').attr('disabled', '');
+	    
+	    $('input[phone]').each(function()
+	    {
+		var $country = $(this).next('.phone.country');
+		var $area = $country.next('.phone.area');
+		var $number = $area.next('.phone.number');
+		
+		var country = parseInt($country.val());
+		var area = parseInt($area.val());
+		var number = parseInt($number.val());
+		
+		if(country < 100)
+		{
+		    country = '0' + country;
+		}
+		
+		if(area < 100)
+		{
+		    area = '0' + area;
+		}
+		
+		$(this).val('' + country + '' + area + '' + number);
+	    });
 	    
 	    $('input[date-type]').each(function()
 	    {

@@ -38,7 +38,7 @@
 				    	</div>
 				  	</div>
 				  	<div class="form-group">
-				    	<label for="ipt-phone-country" class="i18n col-sm-2 control-label" i18n-key="ESTABLISHMENT_FORM_PHONE"></label>
+				    	<label for="ipt-phone" class="i18n col-sm-2 control-label" i18n-key="ESTABLISHMENT_FORM_PHONE"></label>
 				    	<div class="col-sm-10">
 				      		<input type="text" class="i18n form-control" id="ipt-phone" i18n-key="ESTABLISHMENT_FORM_PHONE" name="phone" i18n-render="placeholder" value="${establishment.phone}" phone required ${(!sameEstablishment && establishment != null)? 'disabled' : ''} />
 				    	</div>
