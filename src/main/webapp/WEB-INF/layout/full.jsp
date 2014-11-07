@@ -54,7 +54,9 @@
     	<script>
     	
     		var ROOT = '${__contextPath__}';
+    		
     		var JSESSIONID = '${cookie.JSESSIONID.value}';
+    		
     		var USER_ROLES = [
     			<c:forEach items="${user.roles}" var="role" varStatus="loop">
 					'${role.name}'<c:if test="${!loop.last}">,</c:if>
@@ -62,6 +64,10 @@
 			];
     		
     		var LANGUAGE = '${cookie.LANGUAGE.value}';
+    		
+    		<c:if test="${sessionScope.USER != null}">
+    			var LOGGED_IN = true;
+    		</c:if>
     		
     		function userHasRole(role)
     		{

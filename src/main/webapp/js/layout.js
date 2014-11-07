@@ -52,9 +52,21 @@ var Layout = {
 	}
     },
     
+    isLoggedIn: function()
+    {
+	try
+	{
+	    return LOGGED_IN === true;
+	}
+	catch(exception)
+	{
+	    return false;
+	}
+    },
+    
     registerLogout: function()
     {
-	if(!this.isPublicPage())
+	if(this.isLoggedIn())
 	{
 	    var self = this;
 	    

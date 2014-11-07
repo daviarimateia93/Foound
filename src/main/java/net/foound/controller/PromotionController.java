@@ -127,15 +127,9 @@ public class PromotionController extends BaseController
 				throw new HttpException(HttpStatus.NOT_FOUND);
 			}
 			
-			Map<Long, Integer> clientsInPromotion = new HashMap<>();
-			
-			for(Promotion promotion : establishment.getPromotions())
-			{
-				clientsInPromotion.put(promotion.getId(), getClientService().findInPromotion(promotion.getId()).size());
-			}
+			setClientsOnPromotion(view, establishment.getPromotions());
 			
 			view.addObject("establishment", establishment);
-			view.addObject("clientsOnPromotion", clientsInPromotion);
 			view.addObject("sameEstablishment", sameEstablishment);
 		}
 		
@@ -171,7 +165,21 @@ public class PromotionController extends BaseController
 		view.addObject("activePromotions", true);
 		view.addObject("sameEstablishment", currentEstablishment != null ? currentEstablishment.getId().equals(id) : false);
 		
+		setClientsOnPromotion(view, promotions);
+		
 		return view;
+	}
+	
+	private void setClientsOnPromotion(View view, List<Promotion> promotions)
+	{
+		Map<Long, Integer> clientsOnPromotion = new HashMap<>();
+		
+		for(Promotion promotion : promotions)
+		{
+			clientsOnPromotion.put(promotion.getId(), getClientService().findInPromotion(promotion.getId()).size());
+		}
+		
+		view.addObject("clientsOnPromotion", clientsOnPromotion);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)

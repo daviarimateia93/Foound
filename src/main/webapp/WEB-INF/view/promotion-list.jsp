@@ -43,7 +43,7 @@
 					                        <dl>
 						                        <dt><span class="i18n" i18n-key="PROMOTION_LIST_SCORE_THRESHOLD"></span>:</dt> <dd>${promotion.limitScore}</dd>
 						                        <dt><span class="i18n" i18n-key="PROMOTION_LIST_CREATION"></span>:</dt> <dd date-type="date">${promotion.creation.time}</dd>
-						                        <c:if test="${(sameEstablishment && activePromotions) || !activePromotions}">
+						                        <c:if test="${sameEstablishment}">
 						                        	<dt><span class="i18n" i18n-key="PROMOTION_LIST_PARTICIPANTS"></span>:</dt> <dd>${clientsOnPromotion[promotion.id]}</dd>
 						                        </c:if>
 					                        </dl>
