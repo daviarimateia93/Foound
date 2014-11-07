@@ -315,20 +315,14 @@ var Dashboard = {
 	{
 	    var self = this;
 	    
-	    this.__map = new google.maps.Map($('#div-map-canvas')[0], {
-		
-		// brazil-sp coords by default ;-)
-		center: new google.maps.LatLng(-23.550520, -46.633309),
-		zoom: 11
-	    });
+	    this.__map = new google.maps.Map($('#div-map-canvas')[0]);
 	    
-	    if(navigator.geolocation)
+	    this.centerOnMyLocation();
+	    
+	    $('#img-my-location').click(function()
 	    {
-		navigator.geolocation.getCurrentPosition(function(position)
-		{
-		    self.__map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-		});
-	    }
+		self.centerOnMyLocation();
+	    });
 	    
 	    var loadAjaxCallback = function(data)
 	    {
@@ -375,6 +369,19 @@ var Dashboard = {
 	    }
 	    
 	    this.loadAjax(loadAjaxCallback);
+	},
+	
+	centerOnMyLocation: function()
+	{
+	    var self = this;
+	    
+	    if(navigator.geolocation)
+	    {
+		navigator.geolocation.getCurrentPosition(function(position)
+		{
+		    self.__map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+		});
+	    }
 	},
 	
 	clearSearchMarkers: function()
