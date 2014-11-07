@@ -319,7 +319,7 @@ var Dashboard = {
 	    
 	    this.centerOnMyLocation();
 	    
-	    $('#img-my-location').click(function()
+	    $('#a-my-location').click(function()
 	    {
 		self.centerOnMyLocation();
 	    });
