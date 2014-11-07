@@ -67,7 +67,7 @@
 </div>
 <div id="div-filters"></div>
 <div id="div-map-canvas"></div>
-<img src="${__contextPath__}/img/icon-my-location-background.png" id="img-my-location" />
+<img src="${__contextPath__}/img/icon-my-location.png" id="img-my-location" />
 
 <script src="http://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
 <script src="${__contextPath__}/lib/infobox-1.9/infobox_packed.js"></script>
