@@ -121,5 +121,6 @@
 	"SPECIALITY_BRAZILIAN": "Brasileira",
 	"SPECIALITY_JAPANESE": "Japonesa",
 	"SPECIALITY_MEXICAN": "Mexicana",
-	"SPECIALITY_SNACKS": "Lanches"
+	"SPECIALITY_SNACKS": "Lanches",
+	"SPECIALITY_OTHERS": "Outros"
 }
