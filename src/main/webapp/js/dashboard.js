@@ -738,11 +738,11 @@ var Dashboard = {
 			
 			if($.inArray('SPECIALITY_' + markers[index].__establishment.speciality.name, checkedSpecialities) === -1)
 			{
-			    hide(markers[index]);
+			    hide(markers[index], true);
 			}
-			else if(type === undefined && markers[index].getMap() === null)
+			else if(type === undefined && markers[index].getMap() === null && markers[index].__filter_hidden !== true)
 			{
-			    show(markers[index]);
+			    show(markers[index], true);
 			}
 		    }
 		}
@@ -760,8 +760,13 @@ var Dashboard = {
 		}
 	    };
 	    
-	    var hide = function(marker)
+	    var hide = function(marker, ignoreFilterHidden)
 	    {
+		if(ignoreFilterHidden !== true)
+		{
+		    marker['__filter_hidden'] = true;
+		}
+		
 		marker.setMap(null);
 		
 		if(Dashboard.map.__currentInfoWindow !== null && Dashboard.map.__currentEstablishment !== null)
@@ -773,8 +778,13 @@ var Dashboard = {
 		}
 	    };
 	    
-	    var show = function(marker)
+	    var show = function(marker, ignoreFilterHidden)
 	    {
+		if(ignoreFilterHidden !== true)
+		{
+		marker['__filter_hidden'] = false;
+		}
+		
 		marker.setMap(Dashboard.map.__map);
 	    };
 	    
