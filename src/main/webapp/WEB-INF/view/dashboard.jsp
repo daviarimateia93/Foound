@@ -53,15 +53,10 @@
 	</form>
 	<form role="form" class="specialities pull-left">
 		<hr />
-		<div class="checkbox">
-	    	<label>
-	      		<input type="checkbox" name="filters-specialities" value="SPECIALITY_ALL" checked /> <span class="i18n" i18n-key="DASHBOARD_FILTERS_SPECIALITY_ALL"></span>
-	    	</label>
-	  	</div>
 		<c:forEach items="${specialities}" var="speciality">
 			<div class="checkbox">
 	    		<label>
-		      		<input type="checkbox" name="filters-specialities" value="SPECIALITY_${speciality.name}" /> <span class="i18n" i18n-key="SPECIALITY_${speciality.name}"></span>
+		      		<input type="checkbox" name="filters-specialities" value="SPECIALITY_${speciality.name}" checked /> <span class="i18n" i18n-key="SPECIALITY_${speciality.name}"></span>
 	    		</label>
 	  		</div>
 		</c:forEach>

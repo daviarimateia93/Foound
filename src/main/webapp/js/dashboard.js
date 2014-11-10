@@ -176,10 +176,34 @@ var Dashboard = {
 		}
 	    });
 	    
+	    $('#div-filters input[name="filters-specialities"]').change(function()
+	    {
+		Dashboard.map.filter();
+	    });
+	    
 	    $('input[name="filters-base-promotions"]').change(function()
 	    {
 		Dashboard.map.filter(Dashboard.map.filterTypes[$(this).val()]);
 	    });
+	},
+	
+	getCheckedSpecialities: function()
+	{
+	    var getValues = function(selector)
+	    {
+		var $inputs = $(selector + ':checked');
+		
+		var values = [];
+		
+		$inputs.each(function(i, e)
+		{
+		    values.push($(e).val());
+		});
+		
+		return values;
+	    };
+	    
+	    return getValues('#div-filters input[name="filters-specialities"]');
 	}
     },
     
@@ -669,7 +693,8 @@ var Dashboard = {
 	    KEEP_FILTERED: 1, // should be applied for all base_*
 	    BASE_ALL_PROMOTIONS: 2,
 	    BASE_ALL_ACTIVE_PROMOTIONS: 4,
-	    BASE_ALL_JOINED_PROMOTIONS: 8
+	    BASE_ALL_JOINED_PROMOTIONS: 8,
+	    SPECIALITY_CHECKED: 16
 	},
 	
 	__currentFilterType: null,
@@ -703,11 +728,22 @@ var Dashboard = {
 	    {
 		var markers = contains(type, 'KEEP_FILTERED') ? getFiltereds() : Dashboard.map.__markers;
 		
+		var checkedSpecialities = Dashboard.filters.getCheckedSpecialities();
+		
 		for( var index in markers)
 		{
 		    if(!establishmentIsFromQueryHolderLastMarker(markers[index].__establishment))
 		    {
 			callback(markers[index], markers[index].__establishment);
+			
+			if($.inArray('SPECIALITY_' + markers[index].__establishment.speciality.name, checkedSpecialities) === -1)
+			{
+			    hide(markers[index]);
+			}
+			else if(type === undefined && markers[index].getMap() === null)
+			{
+			    show(markers[index]);
+			}
 		    }
 		}
 	    };
@@ -778,6 +814,14 @@ var Dashboard = {
 		loop(function(marker, establishment)
 		{
 		    show(marker);
+		});
+	    }
+	    
+	    if(type === undefined)
+	    {
+		loop(function()
+		{
+		    
 		});
 	    }
 	    
