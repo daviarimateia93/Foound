@@ -52,13 +52,13 @@ html, body {
 #div-filters {
 	position: absolute;
 	top: 120px;
-	right: -140px;
-	width: 172px;
+	right: -168px;
+	width: 200px;
 	border: 1px solid black;
-	height: auto;
-	overflow: hidden;
+	height: 105px;
+	overflow: auto;
 	background: rgba(0,0,0,0.7);
-	z-index: 4;
+	z-index: 3;
 	padding: 10px 10px 0 10px;
 	color: white;
 	-webkit-transition: all 0.15s ease-in;
@@ -75,8 +75,8 @@ html, body {
 }
 
 #div-filters form label {
-text-transform: uppercase;
-font-size: 11px;
+	text-transform: uppercase;
+	font-size: 11px;
 }
 
 #div-filters .title {
@@ -95,6 +95,8 @@ font-size: 11px;
 	margin-right: 10px;
 	cursor: pointer;
 	padding-bottom: 10px;
+	height: 100%;
+	position: fixed;
 }
 
 #div-filters .toggler .title {
@@ -107,7 +109,9 @@ font-size: 11px;
 }
 
 #div-filters.opened {
+	height: auto;
 	right: 0;
+	bottom: 0;
 }
 
 #div-filters.opened .toggler .title {
@@ -116,6 +120,7 @@ font-size: 11px;
 
 #div-filters form {
 	width: 125px;
+	margin-left: 25px;
 }
 
 #div-filters legend {
@@ -135,7 +140,7 @@ font-size: 11px;
 
 #div-query-holder {
 	position: absolute;
-	z-index: 3;
+	z-index: 5;
 	width: 50%;
 	max-width: 400px;
 	margin-left: 100px;
@@ -197,7 +202,7 @@ font-size: 11px;
 	top: 412px;
 	left: 31px;
 	cursor: pointer;
-	z-index: 5;
+	z-index: 4;
 	border: 1px solid #bbb;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -245,11 +250,15 @@ font-size: 11px;
 		-moz-box-shadow: none;
 		box-shadow: none;
 	 }
+	 
+	 #div-filters.opened {
+		bottom: 33px;
+	}
 }
 
-@media (max-height: 420px) {
+@media (max-width: 400px), (max-height: 420px ) {
 	#a-my-location {
 		top: 144px;
 		left: 8px;
-	}	
+	}
 }

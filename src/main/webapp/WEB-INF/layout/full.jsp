@@ -17,6 +17,9 @@
     
 	    <!-- Layout -->
 	    <link href="${__contextPath__}/css/layout.css" rel="stylesheet" />
+	    
+	    <!-- Modernizr -->
+	    <script src="${__contextPath__}/lib/modernizr/modernizr.js"></script>
 
     	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

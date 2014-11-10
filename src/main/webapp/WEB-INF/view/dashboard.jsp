@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <link href="${__contextPath__}/css/dashboard.css" rel="stylesheet">
 
 <script id="scpt-map-info-window-template" type="text/template">
@@ -24,7 +27,7 @@
 		<span class="glyphicon glyphicon-resize-full"></span>
 		<div class="i18n title" i18n-key="DASHBOARD_FILTERS_TITLE"></div>
 	</div>
-	<form role="form" class="pull-left">
+	<form role="form" class="base pull-left">
 		<div class="i18n title" i18n-key="DASHBOARD_FILTERS_TITLE"></div>
 		<hr />
 		<div class="radio">
@@ -47,6 +50,21 @@
 			</div>
 
 		## } ##
+	</form>
+	<form role="form" class="specialities pull-left">
+		<hr />
+		<div class="checkbox">
+	    	<label>
+	      		<input type="checkbox" name="filters-specialities" value="SPECIALITY_ALL" checked /> <span class="i18n" i18n-key="DASHBOARD_FILTERS_SPECIALITY_ALL"></span>
+	    	</label>
+	  	</div>
+		<c:forEach items="${specialities}" var="speciality">
+			<div class="checkbox">
+	    		<label>
+		      		<input type="checkbox" name="filters-specialities" value="SPECIALITY_${speciality.name}" /> <span class="i18n" i18n-key="SPECIALITY_${speciality.name}"></span>
+	    		</label>
+	  		</div>
+		</c:forEach>
 	</form>
 	<div class="clearfix"></div>
 </script>
