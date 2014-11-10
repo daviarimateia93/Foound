@@ -257,7 +257,14 @@ html, body {
 	}
 }
 
-@media (max-width: 400px), (max-height: 420px ) {
+@media (max-width: 400px) {
+	.touch #a-my-location {
+		top: 144px;
+		left: 8px;
+	}
+}
+
+@media (max-height: 420px ) {
 	#a-my-location {
 		top: 144px;
 		left: 8px;
